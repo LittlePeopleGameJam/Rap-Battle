@@ -16,6 +16,6 @@ public class ButtonEvents : MonoBehaviour
             return;
         }
 
-        button.GetComponentInChildren<Text>().text = "happy";
+        button.GetComponentInChildren<Text>().text = "Just a scared little bitch, guzzlin’ man-goo";
     }
 }
