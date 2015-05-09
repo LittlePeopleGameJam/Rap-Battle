@@ -7,11 +7,6 @@ public class GameController : MonoBehaviour
 {
     public ButtonEvents buttonEvents;
 
-    public Button topButton;
-    public Button middleButton;
-    public Button bottomButton;
-
-    public Text displayText;
 
     public int maxHypeValue;
     public Color maxHypeColor;
