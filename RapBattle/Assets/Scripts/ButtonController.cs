@@ -28,6 +28,17 @@ public class ButtonController : MonoBehaviour
         m_ButtonText.font = aFont;
     }
 
+    public void SetFontSize(int aSize)
+    {
+        m_ButtonText.fontSize = aSize;
+    }
+
+    public void SetFont(Font aFont, int aSize)
+    {
+        m_ButtonText.font = aFont;
+        m_ButtonText.fontSize = aSize;
+    }
+
     public void SetPhrase(Phrase aPhrase)
     {
         m_Phrase = aPhrase;
