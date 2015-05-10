@@ -32,19 +32,33 @@ public class DisplayController : MonoBehaviour
     {
         yield return new WaitForSeconds(aTime);
 
-        UpdateDisplayText(StringConsts.PHRASE_1_KEY);
+        //UpdateDisplayText(StringConsts.PHRASE_1_KEY);
     }
 
     public void UpdateDisplayText(string key)
     {
-        List<Phrase> phraseList = m_GameController.phraseDictionary[key];
+        List<Phrase> phraseList = new List<Phrase>();
+        
+        if (m_GameController.phraseDictionary.TryGetValue(key, out phraseList))
+        {
+            Debug.Log("Key found: " + key);
+            Debug.Log(phraseList.Count + " phraseList count");
+        }
+        else
+        {
+            Debug.Log("Key not found: " + key);
+            Debug.Log(phraseList.Count + " phraseList count");
+            return;
+        }
+
         displayText.text = phraseList[0].text;
 
-        Phrase[] phraseChoices = { phraseList[1], phraseList[2], phraseList[3] };
-        Shuffle(phraseChoices);
+        for (int j = 0; j < activePhraseChoices.Length; j++)
+        {
+            activePhraseChoices[j] = phraseList[j + 1];
+        }
+        Shuffle(activePhraseChoices);
 
-        activePhraseChoices = phraseChoices;
-        
         for (int i = 0 ; i < activePhraseChoices.Length ; i++)
         {
             m_ButtonControllers[i].SetPhrase(activePhraseChoices[i]);

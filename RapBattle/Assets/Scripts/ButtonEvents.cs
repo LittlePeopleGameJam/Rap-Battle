@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ButtonEvents : MonoBehaviour
 {
+    public GameController gameController;
+
     public void ResolveClick(Object sender)
     {   
         GameObject gO = sender as GameObject;
@@ -16,6 +18,7 @@ public class ButtonEvents : MonoBehaviour
             return;
         }
 
-        Debug.Log("clicked: " + buttonController.GetPhrase().text);
+        //Debug.Log("clicked: " + buttonController.GetPhrase().text);
+        gameController.ChoiceSelected(buttonController.GetPhrase().value);
     }
 }
