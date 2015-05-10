@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 30b8102583363c7429809c824e712622
+timeCreated: 1431289159
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Posse_SpriteSheet_0
+    21300002: Posse_SpriteSheet_1
+    21300004: Posse_SpriteSheet_2
+    21300006: Posse_SpriteSheet_3
+    21300008: Posse_SpriteSheet_4
+    21300010: Posse_SpriteSheet_5
+    21300012: Posse_SpriteSheet_6
+    21300014: Posse_SpriteSheet_7
+    21300016: Posse_SpriteSheet_8
+    21300018: Posse_SpriteSheet_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 2044, z: 494, w: 1}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Posse_SpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2044
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 2044
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1533
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 1533
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1022
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 1022
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 511
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 511
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Posse_SpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 0
+        width: 494
+        height: 511
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
