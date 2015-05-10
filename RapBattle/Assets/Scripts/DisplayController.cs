@@ -16,7 +16,7 @@ public class DisplayController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        displayText.text = StringConsts.PHRASE;
+        displayText.text = StringConsts.PHRASE_1;
 	}
 	
 	// Update is called once per frame
