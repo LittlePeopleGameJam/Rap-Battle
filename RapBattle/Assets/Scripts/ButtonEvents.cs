@@ -8,14 +8,14 @@ public class ButtonEvents : MonoBehaviour
     {   
         GameObject gO = sender as GameObject;
 
-        Button button = gO.GetComponent<Button>();
-        
-        if (button == null)
+        ButtonController buttonController = gO.GetComponent<ButtonController>();
+
+        if (buttonController == null)
         {
             Debug.Log("button null");
             return;
         }
 
-        button.GetComponentInChildren<Text>().text = "CLIKTY";
+        Debug.Log("clicked: " + buttonController.GetPhrase().text);
     }
 }

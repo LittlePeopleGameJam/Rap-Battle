@@ -8,7 +8,8 @@ public class DisplayController : MonoBehaviour
     [SerializeField]
     private GameController m_GameController;
 
-    public Button[] buttons;
+    [SerializeField]
+    private ButtonController[] m_ButtonControllers;
 
     public Text displayText;
 
@@ -46,7 +47,7 @@ public class DisplayController : MonoBehaviour
         
         for (int i = 0 ; i < activePhraseChoices.Length ; i++)
         {
-            buttons[i].GetComponentInChildren<Text>().text = activePhraseChoices[i].text;
+            m_ButtonControllers[i].SetPhrase(activePhraseChoices[i]);
         }
     }
 

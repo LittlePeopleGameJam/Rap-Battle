@@ -23,3 +23,4 @@ public class Phrase
         value = aValue;
     }
 }
+
