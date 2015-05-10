@@ -19,6 +19,7 @@ public class ButtonEvents : MonoBehaviour
         }
 
         //Debug.Log("clicked: " + buttonController.GetPhrase().text);
+        gameController.displayController.StopTimer();
         gameController.ChoiceSelected(buttonController.GetPhrase().value);
     }
 }

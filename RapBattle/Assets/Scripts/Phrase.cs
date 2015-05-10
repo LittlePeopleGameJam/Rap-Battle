@@ -8,7 +8,8 @@ public enum PhraseValue
     BAD,
     TOUGH,
     DIRTY,
-    SMART
+    SMART,
+    CHOKE
 }
 
 
