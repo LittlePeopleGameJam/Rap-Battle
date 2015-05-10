@@ -11,6 +11,8 @@ public class DisplayController : MonoBehaviour
     [SerializeField]
     private ButtonController[] m_ButtonControllers;
 
+    private IEnumerator m_TimerCoroutine;
+
     public Text displayText;
     public Text timeDisplay;
 
@@ -84,19 +86,23 @@ public class DisplayController : MonoBehaviour
 
     public void ResetTimer(float aTimeLimit)
     {
-        StopTimer();
+        //StopTimer();
         timerActive = true;
-        StartCoroutine(RunChoiceTimer(aTimeLimit));
+        m_TimerCoroutine = RunChoiceTimer(aTimeLimit);
+        StartCoroutine(m_TimerCoroutine);
+        //StartCoroutine(RunChoiceTimer(aTimeLimit));
     }
 
     public void StopTimer()
     {
         timerActive = false;
-        StopCoroutine("RunChoiceTimer");
+        //StopCoroutine("RunChoiceTimer");
+        if (m_TimerCoroutine != null) { StopCoroutine(m_TimerCoroutine); }
     }
 
     IEnumerator<YieldInstruction> RunChoiceTimer(float aDuration)
     {
+        timerActive = true;
         float time = aDuration;
         while (time > 0.0f && timerActive)
         {
@@ -109,15 +115,19 @@ public class DisplayController : MonoBehaviour
         if (timerActive)
         {
             time = 0.0f;
+            UpdateTimerDisplay(time);
             TimeExpired();
         }
-
-        UpdateTimerDisplay(time);
-        timerActive = false;
+        else
+        {
+            UpdateTimerDisplay(time);
+            timerActive = false;
+        }
     }
 
     private void TimeExpired()
     {
+        StopTimer();
         m_GameController.ChoiceSelected(PhraseValue.CHOKE);
     }
 
