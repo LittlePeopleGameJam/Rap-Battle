@@ -11,6 +11,8 @@ public class DisplayController : MonoBehaviour
     [SerializeField]
     private ButtonController[] m_ButtonControllers;
 
+    public Font textFont;
+
     private IEnumerator m_TimerCoroutine;
 
     public Text displayText;
@@ -35,6 +37,13 @@ public class DisplayController : MonoBehaviour
         yield return new WaitForSeconds(aTime);
 
         //UpdateDisplayText(StringConsts.PHRASE_1_KEY);
+        displayText.font = textFont;
+        timeDisplay.font = textFont;
+
+        for (int i = 0 ; i < m_ButtonControllers.Length ; i++)
+        {
+            m_ButtonControllers[i].SetFont(textFont);
+        }
     }
 
     public void UpdateDisplayText(string key)

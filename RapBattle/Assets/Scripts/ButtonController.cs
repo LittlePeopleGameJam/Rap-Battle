@@ -23,6 +23,10 @@ public class ButtonController : MonoBehaviour
         }
 	}
 	
+    public void SetFont (Font aFont)
+    {
+        m_ButtonText.font = aFont;
+    }
 
     public void SetPhrase(Phrase aPhrase)
     {
