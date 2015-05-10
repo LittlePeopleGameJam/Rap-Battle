@@ -34,6 +34,15 @@ public class DisplayController : MonoBehaviour
         activePhraseChoices = new Phrase[3];
         StartCoroutine(LateStart(0.2f));
 	}
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("pressed left arrow");
+        }
+    }
+
 	
     IEnumerator LateStart(float aTime)
     {
