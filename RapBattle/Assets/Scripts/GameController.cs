@@ -40,8 +40,8 @@ public class GameController : MonoBehaviour
         createKeyList();
         createPhraseDictionary();
         
-        hypeMeter.fillRect.GetComponent<Image>().color = maxHypeColor;
-        hypeMeterBackground.color = minHypeColor;
+        //hypeMeter.fillRect.GetComponent<Image>().color = maxHypeColor;
+        //hypeMeterBackground.color = minHypeColor;
         hypeMeter.minValue = 0;
         hypeMeter.maxValue = maxHypeValue;
         currentHype = (int)(maxHypeValue * 0.5f);

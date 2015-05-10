@@ -18,6 +18,9 @@ public class DisplayController : MonoBehaviour
     public Text displayText;
     public Text timeDisplay;
 
+    public int displayTextSize;
+    public int timeDisplaySize;
+
     public bool timerActive = false;
 
     public float maxTimeDefault = 5.0f;
@@ -29,7 +32,7 @@ public class DisplayController : MonoBehaviour
     {
         //displayText.text = StringConsts.PHRASE_1;
         activePhraseChoices = new Phrase[3];
-        StartCoroutine(LateStart(1.0f));
+        StartCoroutine(LateStart(0.2f));
 	}
 	
     IEnumerator LateStart(float aTime)
@@ -38,11 +41,14 @@ public class DisplayController : MonoBehaviour
 
         //UpdateDisplayText(StringConsts.PHRASE_1_KEY);
         displayText.font = textFont;
+        displayText.fontSize = displayTextSize;
+
         timeDisplay.font = textFont;
+        timeDisplay.fontSize = timeDisplaySize;
 
         for (int i = 0 ; i < m_ButtonControllers.Length ; i++)
         {
-            m_ButtonControllers[i].SetFont(textFont);
+            m_ButtonControllers[i].SetFont(textFont, displayTextSize);
         }
     }
 
