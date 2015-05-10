@@ -111,12 +111,6 @@ public class GameController : MonoBehaviour
 
         Debug.Log("dictionary compiled");
 
-        //foreach (string key in phraseDictionary.Keys)
-        //{
-        //    Debug.Log(key);
-        //}
-        //Debug.Log("key count: " + phraseDictionary.Keys.Count);
-        //Debug.Log("value count: " + phraseDictionary.Values.Count);
     }
 
     private void createKeyList()
