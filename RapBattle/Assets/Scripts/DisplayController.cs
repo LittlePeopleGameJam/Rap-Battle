@@ -11,12 +11,14 @@ public class DisplayController : MonoBehaviour
     [SerializeField]
     private ButtonController[] m_ButtonControllers;
 
+    private IEnumerator m_TimerCoroutine;
+
     public Text displayText;
+    public Text timeDisplay;
 
     public bool timerActive = false;
 
     public float maxTimeDefault = 5.0f;
-    private float m_Timer = 0.0f;
 
     private Phrase[] activePhraseChoices;
 
@@ -77,29 +79,6 @@ public class DisplayController : MonoBehaviour
         }
     }
 
-
-	// Update is called once per frame
-	void Update ()
-    {
-        #region TEMPORARY TESTING
-        if (tempTest)
-        {
-            tempTest = false;
-            ResetTimer();
-        }
-
-        if (tempStopTest)
-        {
-            tempStopTest = false;
-            StopTimer();
-        }
-        #endregion
-    }
-    #region TEMPORARY TESTING
-    public bool tempTest = false;
-    public bool tempStopTest = false;
-    #endregion
-
     public void ResetTimer()
     {
         ResetTimer(maxTimeDefault);
@@ -107,18 +86,23 @@ public class DisplayController : MonoBehaviour
 
     public void ResetTimer(float aTimeLimit)
     {
+        //StopTimer();
         timerActive = true;
-        StartCoroutine(RunChoiceTimer(aTimeLimit));
+        m_TimerCoroutine = RunChoiceTimer(aTimeLimit);
+        StartCoroutine(m_TimerCoroutine);
+        //StartCoroutine(RunChoiceTimer(aTimeLimit));
     }
 
     public void StopTimer()
     {
         timerActive = false;
-        StopCoroutine("RunChoiceTimer");
+        //StopCoroutine("RunChoiceTimer");
+        if (m_TimerCoroutine != null) { StopCoroutine(m_TimerCoroutine); }
     }
 
     IEnumerator<YieldInstruction> RunChoiceTimer(float aDuration)
     {
+        timerActive = true;
         float time = aDuration;
         while (time > 0.0f && timerActive)
         {
@@ -128,15 +112,28 @@ public class DisplayController : MonoBehaviour
         }
         // this is the ensure we can see the time remaining when the coroutine is stopped
         // early like when a choice was made, otherwise we show 0
-        time = timerActive ? 0.0f : time;
+        if (timerActive)
+        {
+            time = 0.0f;
+            UpdateTimerDisplay(time);
+            TimeExpired();
+        }
+        else
+        {
+            UpdateTimerDisplay(time);
+            timerActive = false;
+        }
+    }
 
-        UpdateTimerDisplay(time);
-        timerActive = false;
+    private void TimeExpired()
+    {
+        StopTimer();
+        m_GameController.ChoiceSelected(PhraseValue.CHOKE);
     }
 
     public void UpdateTimerDisplay(float aTime)
     {
         decimal displayTime = decimal.Round((decimal)aTime, 3);
-        displayText.text = displayTime.ToString();  // move to something else, displaytext shows words
+        timeDisplay.text = displayTime.ToString();
     }
 }

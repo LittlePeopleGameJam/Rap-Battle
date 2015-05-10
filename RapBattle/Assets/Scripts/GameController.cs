@@ -20,10 +20,19 @@ public class GameController : MonoBehaviour
 
     public int currentHype;
 
-    public int hypeIncrement = 5;
+    public int hypeIncrement = 10;
+
+    public int hypeGoodModifier = 1;
+    public int hypeGreatModifier = 2;
+    public int hypeBadModifier = -1;
+
+    public int hypeChokeModifier = -2;
 
     public int activeKeyIndex;
     private List<string> m_PhraseKeys;
+
+    public int opponentIndex;
+    public PhraseValue[] opponentWeaknesses;
     
     // Use this for initialization
 	void Start ()
@@ -122,20 +131,58 @@ public class GameController : MonoBehaviour
     private void updateDisplayText()
     {
         displayController.UpdateDisplayText(m_PhraseKeys[activeKeyIndex]);
+        displayController.ResetTimer();
+    }
+
+    private void updateScore(PhraseValue aPhraseValue)
+    {
+        int scoreChange = hypeIncrement;
+        switch(aPhraseValue)
+        {
+            case PhraseValue.BAD:
+                scoreChange *= hypeBadModifier;
+                break;
+
+            case PhraseValue.OPENER:
+                // NOTHING HAPPENS
+                break;
+
+            case PhraseValue.CHOKE:
+                scoreChange *= hypeChokeModifier;
+                break;
+            
+            default:
+                if (aPhraseValue == opponentWeaknesses[opponentIndex])
+                {
+                    scoreChange *= hypeGreatModifier;
+                }
+                else
+                {
+                    scoreChange *= hypeGoodModifier;
+                }
+                break;
+        }
+
+        currentHype += scoreChange;
+        updateHypeMeter();
     }
 
     public void ChoiceSelected(PhraseValue aPhraseValue)
     {
-        //update score
-
-        activeKeyIndex++;
         if (activeKeyIndex < m_PhraseKeys.Count)
         {
-            updateDisplayText();
-        }
-        else
-        {
-            // game over
+            updateScore(aPhraseValue);
+            activeKeyIndex++;
+            if (activeKeyIndex < m_PhraseKeys.Count)
+            {
+                updateDisplayText();
+                //displayController.ResetTimer();
+            }
+            else
+            {
+                displayController.StopTimer();
+                // battle over
+            }
         }
     }
 }
