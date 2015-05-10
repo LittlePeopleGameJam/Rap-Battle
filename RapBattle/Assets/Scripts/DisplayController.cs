@@ -41,9 +41,18 @@ public class DisplayController : MonoBehaviour
         {
             Debug.Log("pressed left arrow");
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        {
+
+        }
     }
 
-	
+	private void ProcessButtonPress()
+    {
+
+    }
+
+
     IEnumerator LateStart(float aTime)
     {
         yield return new WaitForSeconds(aTime);
