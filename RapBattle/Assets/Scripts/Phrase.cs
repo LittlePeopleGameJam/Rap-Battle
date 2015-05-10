@@ -23,9 +23,3 @@ public class Phrase
         value = aValue;
     }
 }
-
-
-public class PhraseCollection
-{
-
-}
